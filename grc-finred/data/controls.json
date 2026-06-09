@@ -1,0 +1,112 @@
+[
+  {
+    "id": "CTR-01",
+    "name": "SIEM con reglas de correlación y EDR comportamental",
+    "framework": "ISO27001",
+    "domain": "Detect",
+    "pillar_zt": "Device",
+    "implemented": true,
+    "evidence": "Regla GRC-FinRed-0601 activa; 19 eventos correlacionados en IR-2026-0601",
+    "cost_q": 120000
+  },
+  {
+    "id": "CTR-02",
+    "name": "MFA FIDO2 para accesos críticos y cuentas administrativas",
+    "framework": "ISO27001",
+    "domain": "Protect",
+    "pillar_zt": "Identity",
+    "implemented": false,
+    "evidence": "MFA habilitado en 87% de accesos; cuentas de servicio sin cobertura",
+    "cost_q": 84000
+  },
+  {
+    "id": "CTR-03",
+    "name": "PAM con acceso Just-in-Time y grabación de sesiones privilegiadas",
+    "framework": "COBIT",
+    "domain": "Protect",
+    "pillar_zt": "Identity",
+    "implemented": false,
+    "evidence": "PAM en piloto; cobertura actual 72% de cuentas privilegiadas",
+    "cost_q": 144000
+  },
+  {
+    "id": "CTR-04",
+    "name": "Sandbox de análisis de adjuntos en correo corporativo",
+    "framework": "ISO27001",
+    "domain": "Protect",
+    "pillar_zt": "Application",
+    "implemented": false,
+    "evidence": "Sin sandbox activo; IR-2026-0601 ingresó por adjunto malicioso no detectado",
+    "cost_q": 72000
+  },
+  {
+    "id": "CTR-05",
+    "name": "DLP en API Gateway con inspección de payloads salientes",
+    "framework": "NIST",
+    "domain": "Protect",
+    "pillar_zt": "Data",
+    "implemented": false,
+    "evidence": "DLP pendiente de despliegue; 3.4 GB exfiltrados sin alerta en IR-2026-0601",
+    "cost_q": 96000
+  },
+  {
+    "id": "CTR-06",
+    "name": "Microsegmentación de red y ZTNA entre entornos",
+    "framework": "NIST",
+    "domain": "Protect",
+    "pillar_zt": "Network",
+    "implemented": false,
+    "evidence": "Microsegmentación al 45%; red corporativa con acceso directo a producción",
+    "cost_q": 180000
+  },
+  {
+    "id": "CTR-07",
+    "name": "Respaldos WORM inmutables con aislamiento fuera de línea",
+    "framework": "ISO27001",
+    "domain": "Recover",
+    "pillar_zt": "Data",
+    "implemented": true,
+    "evidence": "Object Lock activo en vault; bloqueó cifrado total en IR-2026-0601",
+    "cost_q": 60000
+  },
+  {
+    "id": "CTR-08",
+    "name": "Plataforma de Threat Intelligence con feeds OSINT y CTI comercial",
+    "framework": "NIST",
+    "domain": "Identify",
+    "pillar_zt": "Network",
+    "implemented": true,
+    "evidence": "OTX, FS-ISAC, CISA KEV integrados; match en IP 185.44.21.10 (LockBit 3.0)",
+    "cost_q": 84000
+  },
+  {
+    "id": "CTR-09",
+    "name": "Programa de concienciación y simulaciones de phishing",
+    "framework": "ISO27001",
+    "domain": "Protect",
+    "pillar_zt": "Identity",
+    "implemented": true,
+    "evidence": "Tasa de clics en simulaciones: 18% — sobre meta de 10%; programa activo",
+    "cost_q": 24000
+  },
+  {
+    "id": "CTR-10",
+    "name": "NDR con análisis de tráfico este-oeste en red interna",
+    "framework": "NIST",
+    "domain": "Detect",
+    "pillar_zt": "Network",
+    "implemented": false,
+    "evidence": "NDR no desplegado; movimiento lateral en IR-2026-0601 no detectado en 30 horas",
+    "cost_q": 24000
+  },
+  {
+    "id": "CTR-11",
+    "name": "Retainer de consultoría forense e IR externo",
+    "framework": "NIST",
+    "domain": "Respond",
+    "pillar_zt": "Application",
+    "implemented": true,
+    "evidence": "Contrato activo con firma forense; activado en IR-2026-0601 a las 4 horas",
+    "cost_q": 16800
+  }
+]

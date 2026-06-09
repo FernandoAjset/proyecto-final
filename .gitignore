@@ -1,0 +1,29 @@
+# Documentos académicos — no versionar binarios grandes
+*.docx
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs locales no relacionados con los outputs del programa
+*.log

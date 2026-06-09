@@ -1,0 +1,778 @@
+{
+  "generated_at": "2026-06-08T21:13:13.289988",
+  "risk_analysis": {
+    "total_scenarios": 39,
+    "inherent_distribution": {
+      "MUY ALTO": 4,
+      "ALTO": 13,
+      "MEDIO": 17,
+      "BAJO": 5,
+      "MUY BAJO": 0
+    },
+    "residual_distribution": {
+      "MUY ALTO": 0,
+      "ALTO": 0,
+      "MEDIO": 1,
+      "BAJO": 1,
+      "MUY BAJO": 37
+    },
+    "heatmap": [
+      {
+        "p": 2,
+        "i": 3,
+        "count": 2
+      },
+      {
+        "p": 2,
+        "i": 4,
+        "count": 3
+      },
+      {
+        "p": 2,
+        "i": 5,
+        "count": 5
+      },
+      {
+        "p": 3,
+        "i": 3,
+        "count": 3
+      },
+      {
+        "p": 3,
+        "i": 4,
+        "count": 8
+      },
+      {
+        "p": 3,
+        "i": 5,
+        "count": 9
+      },
+      {
+        "p": 4,
+        "i": 3,
+        "count": 1
+      },
+      {
+        "p": 4,
+        "i": 4,
+        "count": 4
+      },
+      {
+        "p": 4,
+        "i": 5,
+        "count": 3
+      },
+      {
+        "p": 5,
+        "i": 5,
+        "count": 1
+      }
+    ],
+    "top_5_inherent": [
+      {
+        "id": "RIE-28",
+        "asset_id": "ACT-10",
+        "threat": "Compromiso de endpoint corporativo mediante spearphishing como vector ",
+        "vector": "Phishing",
+        "inherent_score": 25,
+        "inherent_level": "MUY ALTO",
+        "residual_score": 5.5,
+        "residual_level": "BAJO",
+        "control_effectiveness_pct": 78
+      },
+      {
+        "id": "RIE-13",
+        "asset_id": "ACT-05",
+        "threat": "Clonación y distribución de la aplicación móvil en tiendas no oficiale",
+        "vector": "Phishing",
+        "inherent_score": 20,
+        "inherent_level": "MUY ALTO",
+        "residual_score": 9.0,
+        "residual_level": "MEDIO",
+        "control_effectiveness_pct": 55
+      },
+      {
+        "id": "RIE-21",
+        "asset_id": "ACT-07",
+        "threat": "Exfiltración de registros de terceros por vulnerabilidad BOLA/IDOR en ",
+        "vector": "APT",
+        "inherent_score": 20,
+        "inherent_level": "MUY ALTO",
+        "residual_score": 3.6,
+        "residual_level": "MUY BAJO",
+        "control_effectiveness_pct": 82
+      },
+      {
+        "id": "RIE-30",
+        "asset_id": "ACT-10",
+        "threat": "Movimiento lateral por ausencia de segmentación entre red corporativa ",
+        "vector": "Ransomware",
+        "inherent_score": 20,
+        "inherent_level": "MUY ALTO",
+        "residual_score": 2.4,
+        "residual_level": "MUY BAJO",
+        "control_effectiveness_pct": 88
+      },
+      {
+        "id": "RIE-16",
+        "asset_id": "ACT-06",
+        "threat": "Acceso no autorizado al portal de comercios por credenciales compromet",
+        "vector": "Phishing",
+        "inherent_score": 16,
+        "inherent_level": "ALTO",
+        "residual_score": 3.5,
+        "residual_level": "MUY BAJO",
+        "control_effectiveness_pct": 78
+      }
+    ]
+  },
+  "threat_intel": {
+    "actors": [
+      {
+        "id": "TA-EXT-03",
+        "name": "Operadores RaaS LockBit 3.0",
+        "category": "RaaS",
+        "origin": "Internacional",
+        "active": true,
+        "relevance_score": 100,
+        "ttp_count": 8,
+        "covered_scenarios": 6,
+        "top_scenarios": [
+          {
+            "risk_id": "RIE-28",
+            "asset_id": "ACT-10",
+            "threat": "Compromiso de endpoint corporativo mediante spearphishing como vector ",
+            "vector": "Phishing",
+            "mitre_id": "T1566.001",
+            "inherent_score": 25
+          },
+          {
+            "risk_id": "RIE-30",
+            "asset_id": "ACT-10",
+            "threat": "Movimiento lateral por ausencia de segmentación entre red corporativa ",
+            "vector": "Ransomware",
+            "mitre_id": "T1570",
+            "inherent_score": 20
+          },
+          {
+            "risk_id": "RIE-29",
+            "asset_id": "ACT-10",
+            "threat": "Ejecución de ransomware desde workstations sin restricción de intérpre",
+            "vector": "Ransomware",
+            "mitre_id": "T1059.001",
+            "inherent_score": 16
+          }
+        ]
+      },
+      {
+        "id": "TA-EXT-02",
+        "name": "APT38 / Lazarus Group",
+        "category": "APT",
+        "origin": "Corea del Norte",
+        "active": true,
+        "relevance_score": 97,
+        "ttp_count": 6,
+        "covered_scenarios": 5,
+        "top_scenarios": [
+          {
+            "risk_id": "RIE-21",
+            "asset_id": "ACT-07",
+            "threat": "Exfiltración de registros de terceros por vulnerabilidad BOLA/IDOR en ",
+            "vector": "APT",
+            "mitre_id": "T1048",
+            "inherent_score": 20
+          },
+          {
+            "risk_id": "RIE-19",
+            "asset_id": "ACT-07",
+            "threat": "Enumeración masiva de datos bancarios por ausencia de rate limiting en",
+            "vector": "APT",
+            "mitre_id": "T1190",
+            "inherent_score": 16
+          },
+          {
+            "risk_id": "RIE-01",
+            "asset_id": "ACT-01",
+            "threat": "Explotación de vulnerabilidades en servicio de autenticación expuesto",
+            "vector": "APT",
+            "mitre_id": "T1190",
+            "inherent_score": 15
+          }
+        ]
+      },
+      {
+        "id": "TA-EXT-01",
+        "name": "FIN7 / Carbanak",
+        "category": "eCrime",
+        "origin": "Europa del Este",
+        "active": true,
+        "relevance_score": 92,
+        "ttp_count": 6,
+        "covered_scenarios": 4,
+        "top_scenarios": [
+          {
+            "risk_id": "RIE-28",
+            "asset_id": "ACT-10",
+            "threat": "Compromiso de endpoint corporativo mediante spearphishing como vector ",
+            "vector": "Phishing",
+            "mitre_id": "T1566.001",
+            "inherent_score": 25
+          },
+          {
+            "risk_id": "RIE-29",
+            "asset_id": "ACT-10",
+            "threat": "Ejecución de ransomware desde workstations sin restricción de intérpre",
+            "vector": "Ransomware",
+            "mitre_id": "T1059.001",
+            "inherent_score": 16
+          },
+          {
+            "risk_id": "RIE-03",
+            "asset_id": "ACT-01",
+            "threat": "Sobrescritura de binarios de autenticación por ausencia de runtime inm",
+            "vector": "Ransomware",
+            "mitre_id": "T1059.001",
+            "inherent_score": 15
+          }
+        ]
+      },
+      {
+        "id": "TA-EXT-04",
+        "name": "Initial Access Brokers",
+        "category": "IAB",
+        "origin": "Internacional",
+        "active": true,
+        "relevance_score": 83,
+        "ttp_count": 4,
+        "covered_scenarios": 4,
+        "top_scenarios": [
+          {
+            "risk_id": "RIE-28",
+            "asset_id": "ACT-10",
+            "threat": "Compromiso de endpoint corporativo mediante spearphishing como vector ",
+            "vector": "Phishing",
+            "mitre_id": "T1566.001",
+            "inherent_score": 25
+          },
+          {
+            "risk_id": "RIE-16",
+            "asset_id": "ACT-06",
+            "threat": "Acceso no autorizado al portal de comercios por credenciales compromet",
+            "vector": "Phishing",
+            "mitre_id": "T1566.001",
+            "inherent_score": 16
+          },
+          {
+            "risk_id": "RIE-01",
+            "asset_id": "ACT-01",
+            "threat": "Explotación de vulnerabilidades en servicio de autenticación expuesto",
+            "vector": "APT",
+            "mitre_id": "T1190",
+            "inherent_score": 15
+          }
+        ]
+      },
+      {
+        "id": "TA-INT-01",
+        "name": "Insider Malicioso",
+        "category": "Insider",
+        "origin": "Interno",
+        "active": true,
+        "relevance_score": 78,
+        "ttp_count": 4,
+        "covered_scenarios": 7,
+        "top_scenarios": [
+          {
+            "risk_id": "RIE-02",
+            "asset_id": "ACT-01",
+            "threat": "Abuso de tokens de sesión por ausencia de rotación de llaves criptográ",
+            "vector": "Insider",
+            "mitre_id": "T1078",
+            "inherent_score": 12
+          },
+          {
+            "risk_id": "RIE-06",
+            "asset_id": "ACT-02",
+            "threat": "Escalamiento de privilegios no detectado por ausencia de auditoría en ",
+            "vector": "Insider",
+            "mitre_id": "T1078",
+            "inherent_score": 12
+          },
+          {
+            "risk_id": "RIE-10",
+            "asset_id": "ACT-04",
+            "threat": "Alteración de saldos por privilegios permanentes excesivos en cuentas ",
+            "vector": "Insider",
+            "mitre_id": "T1078",
+            "inherent_score": 12
+          }
+        ]
+      }
+    ],
+    "tactic_coverage": {
+      "TA-01": [
+        "FIN7 / Carbanak",
+        "APT38 / Lazarus Group",
+        "Operadores RaaS LockBit 3.0",
+        "Initial Access Brokers"
+      ],
+      "TA-02": [
+        "FIN7 / Carbanak",
+        "Operadores RaaS LockBit 3.0"
+      ],
+      "TA-03": [],
+      "TA-04": [
+        "Operadores RaaS LockBit 3.0",
+        "Insider Malicioso"
+      ],
+      "TA-05": [
+        "APT38 / Lazarus Group",
+        "Initial Access Brokers",
+        "Insider Malicioso"
+      ],
+      "TA-06": [
+        "Operadores RaaS LockBit 3.0"
+      ],
+      "TA-07": [
+        "FIN7 / Carbanak",
+        "APT38 / Lazarus Group"
+      ],
+      "TA-08": [
+        "Operadores RaaS LockBit 3.0"
+      ]
+    }
+  },
+  "zt_maturity": {
+    "pillars": [
+      {
+        "pillar": "Identity",
+        "label": "Identidad (IAM/PAM/MFA)",
+        "score": 0,
+        "maturity": "Crítico",
+        "implemented": 0,
+        "total": 2,
+        "controls": [
+          {
+            "control_id": "CTR-02",
+            "name": "MFA FIDO2 para accesos críticos y cuentas administrativ",
+            "implemented": false,
+            "evidence": "MFA habilitado en 87% de accesos; cuentas de servicio sin cobertura"
+          },
+          {
+            "control_id": "CTR-03",
+            "name": "PAM con acceso Just-in-Time y grabación de sesiones pri",
+            "implemented": false,
+            "evidence": "PAM en piloto; cobertura actual 72% de cuentas privilegiadas"
+          }
+        ]
+      },
+      {
+        "pillar": "Device",
+        "label": "Dispositivo (EDR/NDR)",
+        "score": 50,
+        "maturity": "Definido",
+        "implemented": 1,
+        "total": 2,
+        "controls": [
+          {
+            "control_id": "CTR-01",
+            "name": "SIEM con reglas de correlación y EDR comportamental",
+            "implemented": true,
+            "evidence": "Regla GRC-FinRed-0601 activa; 19 eventos correlacionados en IR-2026-0601"
+          },
+          {
+            "control_id": "CTR-10",
+            "name": "NDR con análisis de tráfico este-oeste en red interna",
+            "implemented": false,
+            "evidence": "NDR no desplegado; movimiento lateral en IR-2026-0601 no detectado en 30 horas"
+          }
+        ]
+      },
+      {
+        "pillar": "Network",
+        "label": "Red (Microseg./ZTNA)",
+        "score": 33,
+        "maturity": "Inicial",
+        "implemented": 1,
+        "total": 3,
+        "controls": [
+          {
+            "control_id": "CTR-06",
+            "name": "Microsegmentación de red y ZTNA entre entornos",
+            "implemented": false,
+            "evidence": "Microsegmentación al 45%; red corporativa con acceso directo a producción"
+          },
+          {
+            "control_id": "CTR-10",
+            "name": "NDR con análisis de tráfico este-oeste en red interna",
+            "implemented": false,
+            "evidence": "NDR no desplegado; movimiento lateral en IR-2026-0601 no detectado en 30 horas"
+          },
+          {
+            "control_id": "CTR-08",
+            "name": "Plataforma de Threat Intelligence con feeds OSINT y CTI",
+            "implemented": true,
+            "evidence": "OTX, FS-ISAC, CISA KEV integrados; match en IP 185.44.21.10 (LockBit 3.0)"
+          }
+        ]
+      },
+      {
+        "pillar": "Application",
+        "label": "Aplicación (DLP/Sandbox)",
+        "score": 33,
+        "maturity": "Inicial",
+        "implemented": 1,
+        "total": 3,
+        "controls": [
+          {
+            "control_id": "CTR-04",
+            "name": "Sandbox de análisis de adjuntos en correo corporativo",
+            "implemented": false,
+            "evidence": "Sin sandbox activo; IR-2026-0601 ingresó por adjunto malicioso no detectado"
+          },
+          {
+            "control_id": "CTR-05",
+            "name": "DLP en API Gateway con inspección de payloads salientes",
+            "implemented": false,
+            "evidence": "DLP pendiente de despliegue; 3.4 GB exfiltrados sin alerta en IR-2026-0601"
+          },
+          {
+            "control_id": "CTR-11",
+            "name": "Retainer de consultoría forense e IR externo",
+            "implemented": true,
+            "evidence": "Contrato activo con firma forense; activado en IR-2026-0601 a las 4 horas"
+          }
+        ]
+      },
+      {
+        "pillar": "Data",
+        "label": "Datos (WORM/DLP)",
+        "score": 50,
+        "maturity": "Definido",
+        "implemented": 1,
+        "total": 2,
+        "controls": [
+          {
+            "control_id": "CTR-07",
+            "name": "Respaldos WORM inmutables con aislamiento fuera de líne",
+            "implemented": true,
+            "evidence": "Object Lock activo en vault; bloqueó cifrado total en IR-2026-0601"
+          },
+          {
+            "control_id": "CTR-05",
+            "name": "DLP en API Gateway con inspección de payloads salientes",
+            "implemented": false,
+            "evidence": "DLP pendiente de despliegue; 3.4 GB exfiltrados sin alerta en IR-2026-0601"
+          }
+        ]
+      }
+    ],
+    "overall": {
+      "average_score": 33,
+      "maturity_level": "Inicial",
+      "status": "INICIAL: brechas críticas en pilares ZT"
+    }
+  },
+  "governance": {
+    "kpis": [
+      {
+        "id": "KPI-01",
+        "name": "Cobertura de MFA",
+        "target": "100%",
+        "current": 87.0,
+        "unit": "%",
+        "status": "AMARILLO",
+        "owner": "Administrador de IAM"
+      },
+      {
+        "id": "KPI-02",
+        "name": "Cobertura de PAM",
+        "target": "≥ 95%",
+        "current": 72.0,
+        "unit": "%",
+        "status": "ROJO",
+        "owner": "Administrador de IAM"
+      },
+      {
+        "id": "KPI-03",
+        "name": "Accesos Just-in-Time",
+        "target": "≥ 90%",
+        "current": 61.0,
+        "unit": "%",
+        "status": "ROJO",
+        "owner": "Administrador de IAM"
+      },
+      {
+        "id": "KPI-04",
+        "name": "Revisión de accesos",
+        "target": "100%",
+        "current": 100.0,
+        "unit": "%",
+        "status": "VERDE",
+        "owner": "CISO"
+      },
+      {
+        "id": "KPI-05",
+        "name": "Cobertura de microsegmentación",
+        "target": "100%",
+        "current": 45.0,
+        "unit": "%",
+        "status": "ROJO",
+        "owner": "Jefe de Infraestructura y Redes"
+      },
+      {
+        "id": "KPI-06",
+        "name": "Cobertura de EDR",
+        "target": "≥ 98%",
+        "current": 93.0,
+        "unit": "%",
+        "status": "AMARILLO",
+        "owner": "Coordinador del SOC"
+      },
+      {
+        "id": "KPI-07",
+        "name": "Parcheo de vulnerabilidades críticas",
+        "target": "≥ 95%",
+        "current": 97.0,
+        "unit": "%",
+        "status": "VERDE",
+        "owner": "Jefe de Infraestructura y Redes"
+      },
+      {
+        "id": "KPI-08",
+        "name": "Tiempo medio de detección (MTTD)",
+        "target": "< 24 horas",
+        "current": 3.78,
+        "unit": "horas",
+        "status": "VERDE",
+        "owner": "Coordinador del SOC"
+      },
+      {
+        "id": "KPI-09",
+        "name": "Tiempo medio de respuesta (MTTR)",
+        "target": "< 8 horas",
+        "current": 4.0,
+        "unit": "horas",
+        "status": "VERDE",
+        "owner": "Coordinador del SOC"
+      },
+      {
+        "id": "KPI-10",
+        "name": "Respaldos verificados",
+        "target": "100%",
+        "current": 100.0,
+        "unit": "%",
+        "status": "VERDE",
+        "owner": "Jefe de Infraestructura y Redes"
+      },
+      {
+        "id": "KPI-11",
+        "name": "Capacitación en seguridad",
+        "target": "≥ 95%",
+        "current": 91.0,
+        "unit": "%",
+        "status": "AMARILLO",
+        "owner": "CISO"
+      },
+      {
+        "id": "KPI-12",
+        "name": "Resistencia a phishing",
+        "target": "≥ 90%",
+        "current": 82.0,
+        "unit": "%",
+        "status": "AMARILLO",
+        "owner": "CISO"
+      }
+    ],
+    "kris": [
+      {
+        "id": "KRI-01",
+        "name": "Intentos de acceso anómalos",
+        "threshold": 50.0,
+        "current": 12.0,
+        "status": "OK",
+        "risk_ref": "RIE-05",
+        "owner": "Coordinador del SOC"
+      },
+      {
+        "id": "KRI-02",
+        "name": "Cuentas privilegiadas sin justificación",
+        "threshold": 0.0,
+        "current": 4.0,
+        "status": "CRITICO",
+        "risk_ref": "RIE-06",
+        "owner": "Administrador de IAM"
+      },
+      {
+        "id": "KRI-03",
+        "name": "Cambios de privilegios IAM no autorizados",
+        "threshold": 0.0,
+        "current": 0.0,
+        "status": "OK",
+        "risk_ref": "RIE-06",
+        "owner": "CISO"
+      },
+      {
+        "id": "KRI-04",
+        "name": "Aplicaciones móviles falsificadas detectadas",
+        "threshold": 0.0,
+        "current": 1.0,
+        "status": "CRITICO",
+        "risk_ref": "RIE-13",
+        "owner": "CISO"
+      },
+      {
+        "id": "KRI-05",
+        "name": "Picos anómalos de consumo de APIs",
+        "threshold": 0.0,
+        "current": 0.0,
+        "status": "OK",
+        "risk_ref": "RIE-19",
+        "owner": "Coordinador del SOC"
+      },
+      {
+        "id": "KRI-06",
+        "name": "Consultas masivas a base de datos",
+        "threshold": 0.0,
+        "current": 0.0,
+        "status": "OK",
+        "risk_ref": "RIE-11",
+        "owner": "Administrador de Base de Datos"
+      },
+      {
+        "id": "KRI-07",
+        "name": "Desactivaciones de agentes EDR no programadas",
+        "threshold": 0.0,
+        "current": 2.0,
+        "status": "CRITICO",
+        "risk_ref": "RIE-32",
+        "owner": "Coordinador del SOC"
+      },
+      {
+        "id": "KRI-08",
+        "name": "Accesos a respaldos fuera de ventana autorizada",
+        "threshold": 0.0,
+        "current": 1.0,
+        "status": "CRITICO",
+        "risk_ref": "RIE-36",
+        "owner": "Jefe de Infraestructura y Redes"
+      },
+      {
+        "id": "KRI-09",
+        "name": "Incidentes de phishing materializados en el período",
+        "threshold": 0.0,
+        "current": 1.0,
+        "status": "CRITICO",
+        "risk_ref": "RIE-28",
+        "owner": "Coordinador del SOC"
+      },
+      {
+        "id": "KRI-10",
+        "name": "Riesgos residuales sobre umbral de aceptación",
+        "threshold": 0.0,
+        "current": 1.0,
+        "status": "CRITICO",
+        "risk_ref": "RIE-13",
+        "owner": "CISO"
+      }
+    ],
+    "framework_scores": {
+      "ISO27001": 60,
+      "COBIT": 0,
+      "NIST": 40
+    },
+    "nist_functions": {
+      "Respond": {
+        "score": 100,
+        "implemented": 1,
+        "total": 1
+      },
+      "Recover": {
+        "score": 100,
+        "implemented": 1,
+        "total": 1
+      },
+      "Identify": {
+        "score": 100,
+        "implemented": 1,
+        "total": 1
+      },
+      "Protect": {
+        "score": 17,
+        "implemented": 1,
+        "total": 6
+      },
+      "Detect": {
+        "score": 50,
+        "implemented": 1,
+        "total": 2
+      }
+    },
+    "average_score": 33,
+    "maturity_level": "Inicial"
+  },
+  "incident": {
+    "incidente": {
+      "id": "IR-2026-0601",
+      "tipo": "Ransomware LockBit 3.0",
+      "severidad": "P1 — CRÍTICO",
+      "mttd_zt_h": 3.78,
+      "mttd_inh_h": 91.82916666666667,
+      "mttr_min": 240,
+      "activos": 6,
+      "exfil_gb": 3.4,
+      "sha256": "1a74f9dbc41e43bfc65b9c715dad7e477ae7b816bf7db29f110e93b72dc89277"
+    },
+    "costo_beneficio": {
+      "vectores": [
+        {
+          "nombre": "Ransomware",
+          "P": 4,
+          "I": 5,
+          "SLE": 3604000,
+          "ARO": 0.3,
+          "efectividad": 0.83,
+          "ALE_antes": 1081200,
+          "ALE_despues": 183804
+        },
+        {
+          "nombre": "Exfiltración API",
+          "P": 4,
+          "I": 5,
+          "SLE": 2184000,
+          "ARO": 0.4,
+          "efectividad": 0.8,
+          "ALE_antes": 873600,
+          "ALE_despues": 174720
+        },
+        {
+          "nombre": "Phishing/Soporte",
+          "P": 5,
+          "I": 5,
+          "SLE": 429000,
+          "ARO": 0.8,
+          "efectividad": 0.7,
+          "ALE_antes": 343200,
+          "ALE_despues": 102960
+        },
+        {
+          "nombre": "Insider Threat",
+          "P": 3,
+          "I": 4,
+          "SLE": 936000,
+          "ARO": 0.2,
+          "efectividad": 0.65,
+          "ALE_antes": 187200,
+          "ALE_despues": 65520
+        }
+      ],
+      "total_ale_antes": 2485200,
+      "total_ale_despues": 527004,
+      "reduccion": 1958196,
+      "costo_controles": 904800,
+      "beneficio_neto": 1053396,
+      "rosi": 116.4,
+      "payback_meses": 5.5
+    }
+  }
+}

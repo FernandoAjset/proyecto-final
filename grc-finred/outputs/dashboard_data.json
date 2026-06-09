@@ -1,0 +1,64 @@
+{
+  "incidente": {
+    "id": "IR-2026-0601",
+    "tipo": "Ransomware LockBit 3.0",
+    "severidad": "P1 — CRÍTICO",
+    "mttd_zt_h": 3.78,
+    "mttd_inh_h": 91.82916666666667,
+    "mttr_min": 240,
+    "activos": 6,
+    "exfil_gb": 3.4,
+    "sha256": "1a74f9dbc41e43bfc65b9c715dad7e477ae7b816bf7db29f110e93b72dc89277"
+  },
+  "costo_beneficio": {
+    "vectores": [
+      {
+        "nombre": "Ransomware",
+        "P": 4,
+        "I": 5,
+        "SLE": 3604000,
+        "ARO": 0.3,
+        "efectividad": 0.83,
+        "ALE_antes": 1081200,
+        "ALE_despues": 183804
+      },
+      {
+        "nombre": "Exfiltración API",
+        "P": 4,
+        "I": 5,
+        "SLE": 2184000,
+        "ARO": 0.4,
+        "efectividad": 0.8,
+        "ALE_antes": 873600,
+        "ALE_despues": 174720
+      },
+      {
+        "nombre": "Phishing/Soporte",
+        "P": 5,
+        "I": 5,
+        "SLE": 429000,
+        "ARO": 0.8,
+        "efectividad": 0.7,
+        "ALE_antes": 343200,
+        "ALE_despues": 102960
+      },
+      {
+        "nombre": "Insider Threat",
+        "P": 3,
+        "I": 4,
+        "SLE": 936000,
+        "ARO": 0.2,
+        "efectividad": 0.65,
+        "ALE_antes": 187200,
+        "ALE_despues": 65520
+      }
+    ],
+    "total_ale_antes": 2485200,
+    "total_ale_despues": 527004,
+    "reduccion": 1958196,
+    "costo_controles": 904800,
+    "beneficio_neto": 1053396,
+    "rosi": 116.4,
+    "payback_meses": 5.5
+  }
+}

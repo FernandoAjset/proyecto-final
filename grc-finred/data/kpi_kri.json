@@ -1,0 +1,228 @@
+{
+  "kpis": [
+    {
+      "id": "KPI-01",
+      "name": "Cobertura de MFA",
+      "definition": "Porcentaje de accesos críticos protegidos con MFA",
+      "target": "100%",
+      "target_value": 100.0,
+      "current_value": 87.0,
+      "unit": "%",
+      "frequency": "Mensual",
+      "owner": "Administrador de IAM"
+    },
+    {
+      "id": "KPI-02",
+      "name": "Cobertura de PAM",
+      "definition": "Porcentaje de cuentas privilegiadas gestionadas por PAM",
+      "target": "≥ 95%",
+      "target_value": 95.0,
+      "current_value": 72.0,
+      "unit": "%",
+      "frequency": "Mensual",
+      "owner": "Administrador de IAM"
+    },
+    {
+      "id": "KPI-03",
+      "name": "Accesos Just-in-Time",
+      "definition": "Porcentaje de accesos administrativos otorgados mediante JIT",
+      "target": "≥ 90%",
+      "target_value": 90.0,
+      "current_value": 61.0,
+      "unit": "%",
+      "frequency": "Mensual",
+      "owner": "Administrador de IAM"
+    },
+    {
+      "id": "KPI-04",
+      "name": "Revisión de accesos",
+      "definition": "Porcentaje de revisiones de accesos completadas en período",
+      "target": "100%",
+      "target_value": 100.0,
+      "current_value": 100.0,
+      "unit": "%",
+      "frequency": "Trimestral",
+      "owner": "CISO"
+    },
+    {
+      "id": "KPI-05",
+      "name": "Cobertura de microsegmentación",
+      "definition": "Porcentaje de servicios críticos aislados por microsegmentación o ZTNA",
+      "target": "100%",
+      "target_value": 100.0,
+      "current_value": 45.0,
+      "unit": "%",
+      "frequency": "Trimestral",
+      "owner": "Jefe de Infraestructura y Redes"
+    },
+    {
+      "id": "KPI-06",
+      "name": "Cobertura de EDR",
+      "definition": "Porcentaje de endpoints corporativos con agente EDR activo",
+      "target": "≥ 98%",
+      "target_value": 98.0,
+      "current_value": 93.0,
+      "unit": "%",
+      "frequency": "Mensual",
+      "owner": "Coordinador del SOC"
+    },
+    {
+      "id": "KPI-07",
+      "name": "Parcheo de vulnerabilidades críticas",
+      "definition": "Porcentaje de vulnerabilidades críticas cerradas en SLA de 72 horas",
+      "target": "≥ 95%",
+      "target_value": 95.0,
+      "current_value": 97.0,
+      "unit": "%",
+      "frequency": "Mensual",
+      "owner": "Jefe de Infraestructura y Redes"
+    },
+    {
+      "id": "KPI-08",
+      "name": "Tiempo medio de detección (MTTD)",
+      "definition": "Tiempo promedio entre inicio del incidente y detección por SOC",
+      "target": "< 24 horas",
+      "target_value": 24.0,
+      "current_value": 3.78,
+      "unit": "horas",
+      "frequency": "Mensual",
+      "owner": "Coordinador del SOC"
+    },
+    {
+      "id": "KPI-09",
+      "name": "Tiempo medio de respuesta (MTTR)",
+      "definition": "Tiempo promedio entre detección y contención del incidente",
+      "target": "< 8 horas",
+      "target_value": 8.0,
+      "current_value": 4.0,
+      "unit": "horas",
+      "frequency": "Mensual",
+      "owner": "Coordinador del SOC"
+    },
+    {
+      "id": "KPI-10",
+      "name": "Respaldos verificados",
+      "definition": "Porcentaje de respaldos críticos con prueba de restauración exitosa",
+      "target": "100%",
+      "target_value": 100.0,
+      "current_value": 100.0,
+      "unit": "%",
+      "frequency": "Mensual",
+      "owner": "Jefe de Infraestructura y Redes"
+    },
+    {
+      "id": "KPI-11",
+      "name": "Capacitación en seguridad",
+      "definition": "Porcentaje de colaboradores con capacitación GRC completada en el año",
+      "target": "≥ 95%",
+      "target_value": 95.0,
+      "current_value": 91.0,
+      "unit": "%",
+      "frequency": "Anual",
+      "owner": "CISO"
+    },
+    {
+      "id": "KPI-12",
+      "name": "Resistencia a phishing",
+      "definition": "Porcentaje de colaboradores que no caen en simulaciones de phishing",
+      "target": "≥ 90%",
+      "target_value": 90.0,
+      "current_value": 82.0,
+      "unit": "%",
+      "frequency": "Trimestral",
+      "owner": "CISO"
+    }
+  ],
+  "kris": [
+    {
+      "id": "KRI-01",
+      "name": "Intentos de acceso anómalos",
+      "risk_ref": "RIE-05",
+      "threshold": 50.0,
+      "current_value": 12.0,
+      "frequency": "Semanal",
+      "owner": "Coordinador del SOC"
+    },
+    {
+      "id": "KRI-02",
+      "name": "Cuentas privilegiadas sin justificación",
+      "risk_ref": "RIE-06",
+      "threshold": 0.0,
+      "current_value": 4.0,
+      "frequency": "Semanal",
+      "owner": "Administrador de IAM"
+    },
+    {
+      "id": "KRI-03",
+      "name": "Cambios de privilegios IAM no autorizados",
+      "risk_ref": "RIE-06",
+      "threshold": 0.0,
+      "current_value": 0.0,
+      "frequency": "Semanal",
+      "owner": "CISO"
+    },
+    {
+      "id": "KRI-04",
+      "name": "Aplicaciones móviles falsificadas detectadas",
+      "risk_ref": "RIE-13",
+      "threshold": 0.0,
+      "current_value": 1.0,
+      "frequency": "Continuo",
+      "owner": "CISO"
+    },
+    {
+      "id": "KRI-05",
+      "name": "Picos anómalos de consumo de APIs",
+      "risk_ref": "RIE-19",
+      "threshold": 0.0,
+      "current_value": 0.0,
+      "frequency": "Diario",
+      "owner": "Coordinador del SOC"
+    },
+    {
+      "id": "KRI-06",
+      "name": "Consultas masivas a base de datos",
+      "risk_ref": "RIE-11",
+      "threshold": 0.0,
+      "current_value": 0.0,
+      "frequency": "Diario",
+      "owner": "Administrador de Base de Datos"
+    },
+    {
+      "id": "KRI-07",
+      "name": "Desactivaciones de agentes EDR no programadas",
+      "risk_ref": "RIE-32",
+      "threshold": 0.0,
+      "current_value": 2.0,
+      "frequency": "Continuo",
+      "owner": "Coordinador del SOC"
+    },
+    {
+      "id": "KRI-08",
+      "name": "Accesos a respaldos fuera de ventana autorizada",
+      "risk_ref": "RIE-36",
+      "threshold": 0.0,
+      "current_value": 1.0,
+      "frequency": "Continuo",
+      "owner": "Jefe de Infraestructura y Redes"
+    },
+    {
+      "id": "KRI-09",
+      "name": "Incidentes de phishing materializados en el período",
+      "risk_ref": "RIE-28",
+      "threshold": 0.0,
+      "current_value": 1.0,
+      "frequency": "Mensual",
+      "owner": "Coordinador del SOC"
+    },
+    {
+      "id": "KRI-10",
+      "name": "Riesgos residuales sobre umbral de aceptación",
+      "risk_ref": "RIE-13",
+      "threshold": 0.0,
+      "current_value": 1.0,
+      "frequency": "Trimestral",
+      "owner": "CISO"
+    }
+  ]
+}

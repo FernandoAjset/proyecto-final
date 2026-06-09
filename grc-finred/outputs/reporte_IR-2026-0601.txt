@@ -1,0 +1,52 @@
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  REPORTE DE INCIDENTE — IR-2026-0601                                       ║
+║  FinRed Guatemala, S.A. — Programa GRC                                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+IDENTIFICACIÓN
+  ID              : IR-2026-0601
+  Tipo            : Ransomware — Triple Extorsión (LockBit 3.0)
+  Severidad       : P1 — CRÍTICO
+  Cadena ATT&CK   : T1566.001 → T1003 → T1570 → T1562.001 → T1486
+  Vector inicial  : Spearphishing Attachment — a.garcia@finred.gt
+
+LÍNEA DE TIEMPO
+  Acceso inicial       : 2026-06-15 08:14:00 UTC
+  Detec. ZT (EDR C2)  : 2026-06-15 12:01:00 UTC  [RULE-EDR-001] ← con controles
+  Acceso cred.         : 2026-06-16 11:00:00 UTC  [T1003]
+  Movimiento lat.      : 2026-06-16 14:36:00 UTC  [T1570]
+  Exfiltración         : 2026-06-18 02:15:00 UTC  [T1048] — 3.4 GB
+  EDR desactivado      : 2026-06-19 03:54:00 UTC  [T1562.001]
+  Cifrado inicio       : 2026-06-19 04:01:00 UTC  [T1486]
+  Detec. inherente     : 2026-06-19 04:03:45 UTC  [KILL CHAIN GRC-0601] ← sin controles
+  Contención (ZT)      : 2026-06-15 16:01:00 UTC
+
+MÉTRICAS — COMPARATIVA
+  MTTD (sin controles ZT)   : 91h 49min  | Target <24h  → NO CUMPLE ✗
+  MTTD (con controles ZT)   : 3h 47min   | Target <24h  → CUMPLE   ✓
+  MTTR (contención ZT)      : 240 min         | Target <480min → CUMPLE   ✓
+  Mejora MTTD               : 24.3× más rápido con ZT
+
+ACTIVOS AFECTADOS
+  ACT-01  Servidores autenticación      100% cifrado   Restaurado D+5 snapshot cloud
+  ACT-03  Servidores app pagos          100% cifrado   Restaurado D+5 imagen contenedor
+  ACT-04  Base de datos transaccional    78% cifrado   Restaurado D+5 respaldo WORM
+  ACT-09  Portal soporte                Comprometido   Reimagen D+4
+  ACT-10  Red corporativa               Comprometida   Aislada D+4
+  ACT-12  Sistema respaldos              45% cifrado   WORM bloqueó cifrado total ✓
+
+CADENA DE CUSTODIA
+  Archivo  : logs_IR-2026-0601.txt
+  SHA-256  : 1a74f9dbc41e43bfc65b9c715dad7e477ae7b816bf7db29f110e93b72dc89277
+  Custodio : Coordinador del SOC — FinRed Guatemala
+  Fecha    : 2026-06-09 03:13:13 UTC
+
+LECCIONES APRENDIDAS
+  LL-01  Sin sandbox de adjuntos → dropper ejecutado sin detección — 96 horas
+  LL-02  Sin microsegmentación → endpoint soporte alcanzó core transaccional en 30h
+  LL-03  svc_backup con privilegios permanentes → usada para desactivar EDR
+  LL-04  Object Lock WORM bloqueó cifrado total de respaldos → recuperación sin rescate
+  LL-05  Regla Kill Chain GRC-FinRed-0601 redujo MTTD de 96h a 3h 47min
+  LL-06  Runbook IR actualizado: notificación SIB incluida como paso obligatorio min 0-30
+  LL-07  Sin DLP activo → 3.4 GB exfiltrados sin alerta durante 3 días

@@ -1,0 +1,47 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║  FinRed Guatemala, S.A. — Programa GRC                             ║
+║  Reporte Integrado de Análisis GRC                                 ║
+║  Generado: 2026-06-08 21:13:13                              ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+Módulos ejecutados:
+  ✓ Análisis de Riesgos
+  ✓ Threat Intelligence
+  ✓ Madurez Zero Trust
+  ✓ Gobierno GRC (KPI/KRI)
+
+──────────────────────────────────────────────────────────────────────
+RESUMEN EJECUTIVO
+──────────────────────────────────────────────────────────────────────
+  Total hallazgos: 33
+  Críticos:        13
+  Altos:           20
+  Medios:          0
+
+TOP HALLAZGOS CRÍTICOS:
+  [CRITICAL]  ISO27001 / Gestión de Riesgos
+             RIE-13 — Clonación y distribución de la aplicación móvil en tiendas n
+
+  [CRITICAL]  ISO27001 / Gestión de Riesgos
+             RIE-21 — Exfiltración de registros de terceros por vulnerabilidad BOL
+
+  [CRITICAL]  ISO27001 / Gestión de Riesgos
+             RIE-28 — Compromiso de endpoint corporativo mediante spearphishing co
+
+  [CRITICAL]  ISO27001 / Gestión de Riesgos
+             RIE-30 — Movimiento lateral por ausencia de segmentación entre red co
+
+  [CRITICAL]  NIST / Threat Intelligence
+             Actor activo con cobertura en escenarios de alto impacto: APT38 / Lazarus Group
+
+  [CRITICAL]  NIST / Threat Intelligence
+             Actor activo con cobertura en escenarios de alto impacto: Operadores RaaS LockBit 3.0
+
+  [CRITICAL]  NIST / Zero Trust — Identity
+             Pilar ZT con madurez insuficiente: Identidad (IAM/PAM/MFA)
+
+  [CRITICAL]  NIST / KRI — Monitoreo de Riesgo
+             KRI-02 supera umbral: Cuentas privilegiadas sin justificación
+
+──────────────────────────────────────────────────────────────────────
+Reporte generado: 2026-06-08 21:13:13

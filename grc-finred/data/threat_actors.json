@@ -1,0 +1,62 @@
+[
+  {
+    "id": "TA-EXT-01",
+    "name": "FIN7 / Carbanak",
+    "category": "eCrime",
+    "origin": "Europa del Este",
+    "active": true,
+    "targets_fintech": true,
+    "sector_focus": ["fintech", "banca", "retail", "pagos digitales"],
+    "ttps": ["T1566.001", "T1059.001", "T1078", "T1003", "T1041", "T1486"],
+    "risk_scenario_ids": ["RIE-28", "RIE-29", "RIE-03", "RIE-11"],
+    "notes": "Opera mediante spearphishing dirigido a empleados de finanzas y TI; despliega Carbanak backdoor para acceso persistente y exfiltración de datos bancarios"
+  },
+  {
+    "id": "TA-EXT-02",
+    "name": "APT38 / Lazarus Group",
+    "category": "APT",
+    "origin": "Corea del Norte",
+    "active": true,
+    "targets_fintech": true,
+    "sector_focus": ["banca", "criptomonedas", "SWIFT", "fintech"],
+    "ttps": ["T1190", "T1078", "T1048", "T1570", "T1486", "T1071.001"],
+    "risk_scenario_ids": ["RIE-01", "RIE-11", "RIE-19", "RIE-21", "RIE-37"],
+    "notes": "Especializado en robo de fondos mediante fraude SWIFT y APIs bancarias; tiempo de permanencia mediano superior a 60 días antes del impacto"
+  },
+  {
+    "id": "TA-EXT-03",
+    "name": "Operadores RaaS LockBit 3.0",
+    "category": "RaaS",
+    "origin": "Internacional",
+    "active": true,
+    "targets_fintech": true,
+    "sector_focus": ["fintech", "salud", "manufactura", "logística"],
+    "ttps": ["T1566.001", "T1059.001", "T1003", "T1570", "T1021.001", "T1562.001", "T1486", "T1048"],
+    "risk_scenario_ids": ["RIE-28", "RIE-29", "RIE-30", "RIE-32", "RIE-36", "RIE-12"],
+    "notes": "Modelo de triple extorsión: cifrado + exfiltración + DDoS; compran acceso inicial a IABs; desplegaron LockBit 3.0 en IR-2026-0601"
+  },
+  {
+    "id": "TA-EXT-04",
+    "name": "Initial Access Brokers",
+    "category": "IAB",
+    "origin": "Internacional",
+    "active": true,
+    "targets_fintech": true,
+    "sector_focus": ["fintech", "banca", "telecomunicaciones", "gobierno"],
+    "ttps": ["T1566.001", "T1190", "T1078", "T1133"],
+    "risk_scenario_ids": ["RIE-01", "RIE-16", "RIE-28", "RIE-05"],
+    "notes": "Venden acceso remoto a redes comprometidas en foros underground; precios promedio por acceso a fintech LATAM: USD 500-5000 según nivel de privilegio"
+  },
+  {
+    "id": "TA-INT-01",
+    "name": "Insider Malicioso",
+    "category": "Insider",
+    "origin": "Interno",
+    "active": true,
+    "targets_fintech": true,
+    "sector_focus": ["fintech"],
+    "ttps": ["T1078", "T1003", "T1552", "T1048"],
+    "risk_scenario_ids": ["RIE-02", "RIE-06", "RIE-10", "RIE-17", "RIE-23", "RIE-26", "RIE-38"],
+    "notes": "Tiempo medio de detección interna: 77 días; opera bajo credenciales legítimas con conocimiento del entorno; difícil distinción de operación normal"
+  }
+]
