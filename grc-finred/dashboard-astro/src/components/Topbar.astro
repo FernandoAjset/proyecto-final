@@ -1,0 +1,15 @@
+---
+import { TITLES } from '../data/dashboard.js';
+const [title, sub] = TITLES.ejecutivo;
+---
+<div class="topbar">
+  <div>
+    <div class="topbar-title" id="pageTitle">{title}</div>
+    <div class="topbar-sub" id="pageSub">{sub}</div>
+  </div>
+  <div class="topbar-badges">
+    <span class="chip blue">280 colaboradores</span>
+    <span class="chip amber">39 escenarios de riesgo</span>
+    <span class="chip red">IR-2026-0601 · P1</span>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+---
+import { KILL_CHAIN } from '../../data/dashboard.js';
+---
+<div class="tab-pane" id="tab-forense">
+
+  <div class="section-label">Cadena de custodia</div>
+  <div class="row c32">
+    <div class="card">
+      <div class="card-head">
+        <h3>SHA-256 — Integridad de evidencia</h3>
+        <span>logs_IR-2026-0601.txt</span>
+      </div>
+      <div class="card-body">
+        <div class="sha-box" id="shaBox">1a74f9dbc41e43bfc65b9c715dad7e477ae7b816bf7db29f110e93b72dc89277</div>
+        <div class="row c3 mt16" style="margin-top:16px">
+          <div>
+            <div class="stat-label">Custodio</div>
+            <div style="font-size:13px;color:var(--text-hi);margin-top:4px">Coordinador del SOC</div>
+          </div>
+          <div>
+            <div class="stat-label">Organización</div>
+            <div style="font-size:13px;color:var(--text-hi);margin-top:4px">FinRed Guatemala, S.A.</div>
+          </div>
+          <div>
+            <div class="stat-label">Eventos registrados</div>
+            <div style="font-size:13px;color:var(--text-hi);margin-top:4px">19 eventos de telemetría SIEM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>Regla de correlación</h3></div>
+      <div class="card-body">
+        <div class="stat-label">Regla SIEM</div>
+        <div style="font-family:var(--font-mono);font-size:14px;color:var(--cyan);margin:6px 0 14px">GRC-FinRed-0601</div>
+        <div class="stat-label">Correlación</div>
+        <div style="margin:6px 0 14px">
+          <span class="mitre-tag">T1566</span><span class="mitre-tag">T1003</span><span class="mitre-tag">T1570</span><span class="mitre-tag">T1562</span><span class="mitre-tag">T1486</span>
+        </div>
+        <div class="stat-label">Acción</div>
+        <div style="font-size:12px;color:var(--text-hi);margin-top:6px">Aislamiento de hosts + revocación de sesiones (T0+3h47m)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Consola SIEM — logs_IR-2026-0601.txt</div>
+  <div class="card">
+    <div class="card-body">
+      <div class="log-console" id="logConsole">
+        {KILL_CHAIN.map((ev, i) => (
+          <div class="log-line" style={`opacity:0;animation:fadeIn .3s ease forwards;animation-delay:${(i * 0.04).toFixed(2)}s`}>
+            <span class="log-time">{ev.time}</span><span class={`log-type ${ev.logc}`}>{ev.type}</span><span class="log-rest">host={ev.host} | {ev.tech} | {ev.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+</div>

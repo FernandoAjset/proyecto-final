@@ -1,0 +1,203 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: F
+      - generic [ref=e7]:
+        - strong [ref=e8]: FinRed Guatemala
+        - text: Centro de Gobierno GRC
+    - navigation [ref=e9]:
+      - generic [ref=e10]: Navegación
+      - generic [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: ◆
+        - text: Resumen Ejecutivo
+      - generic [ref=e13] [cursor=pointer]:
+        - generic [ref=e14]: ⚠
+        - text: Incidente IR-2026-0601
+      - generic [ref=e15] [cursor=pointer]:
+        - generic [ref=e16]: ▦
+        - text: Riesgos & Matriz
+      - generic [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: ☠
+        - text: Threat Intelligence
+      - generic [ref=e19] [cursor=pointer]:
+        - generic [ref=e20]: ✓
+        - text: KPIs / KRIs / ZT
+      - generic [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: ⌂
+        - text: Evidencia Forense
+    - generic [ref=e23]:
+      - generic [ref=e24]: Incidente activo
+      - generic [ref=e26]: IR-2026-0601
+      - generic [ref=e27]: Ransomware LockBit 3.0 · P1 Crítico
+    - generic [ref=e28]:
+      - text: "Marcos: ISO 27001 · ISO 27005 · COBIT 2019"
+      - text: NIST CSF 2.0 · NIST 800-207 · MITRE ATT&CK
+  - generic [ref=e29]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]: Incidente IR-2026-0601
+        - generic [ref=e33]: Ransomware LockBit 3.0 — Kill chain, MTTD/MTTR y costo-beneficio
+      - generic [ref=e34]:
+        - generic [ref=e35]: 280 colaboradores
+        - generic [ref=e36]: 39 escenarios de riesgo
+        - generic [ref=e37]: IR-2026-0601 · P1
+    - generic [ref=e166]:
+      - generic [ref=e167]: Métricas del incidente
+      - generic [ref=e168]:
+        - generic [ref=e169]:
+          - generic [ref=e170]: MTTD con controles ZT
+          - generic [ref=e171]: 2.92h
+          - generic [ref=e172]: 3h 47min · detección real EDR
+          - generic [ref=e173]: ✓ Meta <24h
+        - generic [ref=e174]:
+          - generic [ref=e175]: MTTD sin controles
+          - generic [ref=e176]: 70.9h
+          - generic [ref=e177]: 91h 49min · escenario inherente
+          - generic [ref=e178]: ✗ Excede meta 24h
+        - generic [ref=e179]:
+          - generic [ref=e180]: MTTR Contención
+          - generic [ref=e181]: 185m
+          - generic [ref=e182]: desde detección a aislamiento
+          - generic [ref=e183]: ✓ Meta <480m
+        - generic [ref=e184]:
+          - generic [ref=e185]: Datos exfiltrados
+          - generic [ref=e186]: 2.6 GB
+          - generic [ref=e187]: 847,320 registros transaccionales
+          - generic [ref=e188]: 6 activos afectados
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - generic [ref=e191]:
+            - heading "Kill Chain — Línea de Tiempo SIEM" [level=3] [ref=e192]
+            - generic [ref=e193]: 19 eventos · MITRE ATT&CK · 2026-06-15 → 06-19
+          - generic [ref=e195]:
+            - generic [ref=e199]:
+              - generic [ref=e200]: 2026-06-15 08:14 · endpoint-soporte-07
+              - generic [ref=e201]:
+                - generic [ref=e202]: PHISHING
+                - generic [ref=e203]: T1566.001
+              - generic [ref=e204]: Apertura de adjunto malicioso factura_Q28000.docx.exe — usuario a.garcia@finred.gt
+            - generic [ref=e208]:
+              - generic [ref=e209]: 2026-06-15 08:15 · endpoint-soporte-07
+              - generic [ref=e210]:
+                - generic [ref=e211]: EXECUTION
+                - generic [ref=e212]: T1059.001
+              - generic [ref=e213]: Ejecución PowerShell — descarga de loader desde 185.44.21.10
+            - generic [ref=e217]:
+              - generic [ref=e218]: 2026-06-15 09:44 · endpoint-soporte-07
+              - generic [ref=e219]:
+                - generic [ref=e220]: C2 COMMS
+                - generic [ref=e221]: T1071.001
+              - generic [ref=e222]: Beacon HTTPS/443 hacia infraestructura C2, intervalo 60s
+            - generic [ref=e226]:
+              - generic [ref=e227]: 2026-06-15 11:14 · endpoint-soporte-07
+              - generic [ref=e228]:
+                - generic [ref=e229]: RECON
+                - generic [ref=e230]: T1046
+              - generic [ref=e231]: Escaneo de red 172.16.10.0/24, puertos 22/3389/445
+            - generic [ref=e235]:
+              - generic [ref=e236]: 2026-06-15 12:01 · endpoint-soporte-07
+              - generic [ref=e237]:
+                - generic [ref=e238]: DETECCIÓN ZT
+                - generic [ref=e239]: EDR-BEH-C2-BLOCK
+              - generic [ref=e240]: EDR behavioral bloquea IP en feed OTX LockBit 3.0 — cuarentena automática (T0+3h47m)
+            - generic [ref=e244]:
+              - generic [ref=e245]: 2026-06-16 11:00 · endpoint-soporte-07
+              - generic [ref=e246]:
+                - generic [ref=e247]: CRED ACCESS
+                - generic [ref=e248]: T1003
+              - generic [ref=e249]: Volcado de LSASS mediante reflective DLL
+            - generic [ref=e253]:
+              - generic [ref=e254]: 2026-06-16 12:14 · endpoint-soporte-07
+              - generic [ref=e255]:
+                - generic [ref=e256]: PERSISTENCE
+                - generic [ref=e257]: T1053.005
+              - generic [ref=e258]: Tarea programada disfrazada de WindowsDefenderUpdate
+            - generic [ref=e262]:
+              - generic [ref=e263]: 2026-06-16 14:36 · portal-soporte-01
+              - generic [ref=e264]:
+                - generic [ref=e265]: LATERAL
+                - generic [ref=e266]: T1570
+              - generic [ref=e267]: SMB exec hacia prod-app-srv-01 con herramienta tipo psexec
+            - generic [ref=e271]:
+              - generic [ref=e272]: 2026-06-16 15:19 · prod-app-srv-01
+              - generic [ref=e273]:
+                - generic [ref=e274]: LATERAL
+                - generic [ref=e275]: T1021.001
+              - generic [ref=e276]: Login RDP exitoso vía NTLM, origen portal-soporte-01
+            - generic [ref=e280]:
+              - generic [ref=e281]: 2026-06-18 02:15 · db-transac-01
+              - generic [ref=e282]:
+                - generic [ref=e283]: EXFILTRATION
+                - generic [ref=e284]: T1048
+              - generic [ref=e285]: Volcado de BD transaccional — 62 tablas, 847,320 registros
+            - generic [ref=e289]:
+              - generic [ref=e290]: 2026-06-18 02:59 · db-transac-01
+              - generic [ref=e291]:
+                - generic [ref=e292]: EXFILTRATION
+                - generic [ref=e293]: T1048
+              - generic [ref=e294]: Carga de 3.4 GB hacia 91.220.163.47 vía HTTPS/443
+            - generic [ref=e298]:
+              - generic [ref=e299]: 2026-06-19 03:54 · prod-app-srv-01
+              - generic [ref=e300]:
+                - generic [ref=e301]: DEF EVASION
+                - generic [ref=e302]: T1562.001
+              - generic [ref=e303]: Terminación forzada de agente EDR 4.2.1
+            - generic [ref=e307]:
+              - generic [ref=e308]: 2026-06-19 03:55 · prod-srv-03
+              - generic [ref=e309]:
+                - generic [ref=e310]: DEF EVASION
+                - generic [ref=e311]: T1562.001
+              - generic [ref=e312]: Terminación forzada de agente EDR 4.2.1
+            - generic [ref=e316]:
+              - generic [ref=e317]: 2026-06-19 04:01 · db-transac-01
+              - generic [ref=e318]:
+                - generic [ref=e319]: IMPACT
+                - generic [ref=e320]: T1486
+              - generic [ref=e321]: Inicio de cifrado AES-256 sobre /data/transac/*.db — proceso lockbit3.exe
+            - generic [ref=e325]:
+              - generic [ref=e326]: 2026-06-19 04:02 · auth-srv-01
+              - generic [ref=e327]:
+                - generic [ref=e328]: IMPACT
+                - generic [ref=e329]: T1486
+              - generic [ref=e330]: Cifrado de configuraciones /etc/app/*.conf y /var/lib/auth/
+            - generic [ref=e334]:
+              - generic [ref=e335]: 2026-06-19 04:03:30 · backup-vault
+              - generic [ref=e336]:
+                - generic [ref=e337]: IMPACT BLOQUEADO
+                - generic [ref=e338]: T1486
+              - generic [ref=e339]: WORM lock activo — ENCRYPT_BLOCKED, acceso denegado
+            - generic [ref=e343]:
+              - generic [ref=e344]: 2026-06-19 04:03:45 · —
+              - generic [ref=e345]:
+                - generic [ref=e346]: KRI ALERT
+                - generic [ref=e347]: RULE-KRI-01
+              - generic [ref=e348]: KRI-07 EDR_DESACTIVADO = 2 (umbral 0) — escalado a CISO
+            - generic [ref=e352]:
+              - generic [ref=e353]: 2026-06-19 04:04:00 · —
+              - generic [ref=e354]:
+                - generic [ref=e355]: KRI ALERT
+                - generic [ref=e356]: RULE-KRI-08
+              - generic [ref=e357]: KRI-08 ACCESO_BACKUP_FUERAVENTANA = 1 — escalado a Jefe de Infraestructura
+            - generic [ref=e361]:
+              - generic [ref=e362]: 2026-06-19 04:04:15 · —
+              - generic [ref=e363]:
+                - generic [ref=e364]: KILL CHAIN
+                - generic [ref=e365]: GRC-FinRed-0601
+              - generic [ref=e366]: Correlación T1566+T1003+T1570+T1562+T1486 — Aislamiento + revocación de sesiones
+        - generic [ref=e367]:
+          - generic [ref=e368]:
+            - 'heading "MTTD: Inherente vs ZT" [level=3] [ref=e370]'
+            - generic [ref=e372]:
+              - generic [ref=e373]:
+                - generic [ref=e374]: Sin controles Zero Trust
+                - generic [ref=e375]: 91h 49m
+              - generic [ref=e378]:
+                - generic [ref=e379]: Con EDR behavioral + CTI feed
+                - generic [ref=e380]: 3h 47m
+          - generic [ref=e384]:
+            - heading "ALE — Antes vs Después" [level=3] [ref=e385]
+            - generic [ref=e386]: por vector de amenaza (Q)
+      - generic [ref=e390]: ROI por control (top 5)
+    - generic [ref=e163]:
+      - generic [ref=e164]: FinRed Guatemala, S.A. · Programa de Gobierno, Riesgo y Cumplimiento
+      - generic [ref=e165]: ISO/IEC 27001:2022 · ISO/IEC 27005:2022 · ISO/IEC 27035-1:2023 · COBIT 2019 · NIST CSF 2.0 · NIST SP 800-207 · MITRE ATT&CK

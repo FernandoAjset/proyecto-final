@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Topbar from '../components/Topbar.astro';
+import Ejecutivo from '../components/tabs/Ejecutivo.astro';
+import Incidente from '../components/tabs/Incidente.astro';
+import Riesgos from '../components/tabs/Riesgos.astro';
+import Amenazas from '../components/tabs/Amenazas.astro';
+import Cumplimiento from '../components/tabs/Cumplimiento.astro';
+import Forense from '../components/tabs/Forense.astro';
+---
+<Layout title="FinRed Guatemala — Centro GRC">
+  <Sidebar />
+
+  <div class="main">
+    <Topbar />
+
+    <div class="content">
+      <Ejecutivo />
+      <Incidente />
+      <Riesgos />
+      <Amenazas />
+      <Cumplimiento />
+      <Forense />
+    </div>
+
+    <div class="footer">
+      <span>FinRed Guatemala, S.A. · Programa de Gobierno, Riesgo y Cumplimiento</span>
+      <span>ISO/IEC 27001:2022 · ISO/IEC 27005:2022 · ISO/IEC 27035-1:2023 · COBIT 2019 · NIST CSF 2.0 · NIST SP 800-207 · MITRE ATT&CK</span>
+    </div>
+  </div>
+
+  <script>
+    import '../scripts/dashboard-client.js';
+  </script>
+</Layout>

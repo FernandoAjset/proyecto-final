@@ -1,0 +1,103 @@
+---
+import { KILL_CHAIN } from '../../data/dashboard.js';
+---
+<div class="tab-pane" id="tab-incidente">
+
+  <div class="section-label">Métricas del incidente</div>
+  <div class="stat-grid g4">
+    <div class="stat-card c-green">
+      <div class="stat-label">MTTD con controles ZT</div>
+      <div class="stat-val c-green" data-counter="3.78" data-decimals="2" data-suffix="h">0h</div>
+      <div class="stat-sub">3h 47min · detección real EDR</div>
+      <span class="stat-tag tag-ok">✓ Meta &lt;24h</span>
+    </div>
+    <div class="stat-card c-red">
+      <div class="stat-label">MTTD sin controles</div>
+      <div class="stat-val c-red" data-counter="91.83" data-decimals="1" data-suffix="h">0h</div>
+      <div class="stat-sub">91h 49min · escenario inherente</div>
+      <span class="stat-tag tag-bad">✗ Excede meta 24h</span>
+    </div>
+    <div class="stat-card c-cyan">
+      <div class="stat-label">MTTR Contención</div>
+      <div class="stat-val c-cyan" data-counter="240" data-suffix="m">0m</div>
+      <div class="stat-sub">desde detección a aislamiento</div>
+      <span class="stat-tag tag-ok">✓ Meta &lt;480m</span>
+    </div>
+    <div class="stat-card c-amber">
+      <div class="stat-label">Datos exfiltrados</div>
+      <div class="stat-val c-amber" data-counter="3.4" data-decimals="1" data-suffix=" GB">0 GB</div>
+      <div class="stat-sub">847,320 registros transaccionales</div>
+      <span class="stat-tag tag-bad">6 activos afectados</span>
+    </div>
+  </div>
+
+  <div class="row c32">
+    <div class="card">
+      <div class="card-head">
+        <h3>Kill Chain — Línea de Tiempo SIEM</h3>
+        <span>19 eventos · MITRE ATT&CK · 2026-06-15 → 06-19</span>
+      </div>
+      <div class="card-body">
+        <div class="timeline" id="killChainTimeline">
+          {KILL_CHAIN.map((ev, i) => {
+            let cardClass = '';
+            if (ev.impact) cardClass = 'impact-card';
+            if (ev.detect) cardClass = 'detect-card';
+            const typeColor = ev.detect ? 'var(--cyan)' : (ev.impact ? 'var(--red)' : 'var(--text-hi)');
+            return (
+              <div class="tl-item" style={`animation-delay:${(i * 0.07).toFixed(2)}s`}>
+                <div class="tl-dot-wrap"><div class={`tl-dot ${ev.color}`}></div></div>
+                <div class={`tl-content ${cardClass}`}>
+                  <div class="tl-time">{ev.time} · {ev.host}</div>
+                  <div class="tl-event">
+                    <span class="tl-type" style={`color:${typeColor}`}>{ev.type}</span>
+                    <span class="tl-tech">{ev.tech}</span>
+                  </div>
+                  <div class="tl-desc">{ev.desc}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-head"><h3>MTTD: Inherente vs ZT</h3></div>
+        <div class="card-body">
+          <div class="mttd-compare">
+            <div class="mttd-item">
+              <div class="label">Sin controles Zero Trust</div>
+              <div class="val" style="color:var(--red)">91h 49m</div>
+              <div class="mttd-bar-bg"><div class="mttd-bar-fill" style="background:var(--red)" data-width="100"></div></div>
+            </div>
+            <div class="mttd-item">
+              <div class="label">Con EDR behavioral + CTI feed</div>
+              <div class="val" style="color:var(--green)">3h 47m</div>
+              <div class="mttd-bar-bg"><div class="mttd-bar-fill" style="background:var(--green)" data-width="4.1"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt16">
+        <div class="card-head">
+          <h3>ALE — Antes vs Después</h3>
+          <span>por vector de amenaza (Q)</span>
+        </div>
+        <div class="card-body">
+          <div class="chart-wrap h280"><canvas id="chartALE"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">ROI por control (top 5)</div>
+  <div class="card">
+    <div class="card-body">
+      <div class="chart-wrap h240"><canvas id="chartROI"></canvas></div>
+    </div>
+  </div>
+
+</div>

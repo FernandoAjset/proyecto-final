@@ -1,0 +1,118 @@
+---
+import { TOP_RISKS } from '../../data/dashboard.js';
+const top5 = TOP_RISKS.slice(0, 5);
+---
+<div class="tab-pane active" id="tab-ejecutivo">
+
+  <div class="section-label">Postura general de riesgo</div>
+  <div class="stat-grid g6">
+    <div class="stat-card c-cyan">
+      <div class="stat-label">ROSI</div>
+      <div class="stat-val c-cyan" data-counter="116.4" data-suffix="%">0%</div>
+      <div class="stat-sub">Retorno sobre inversión seguridad</div>
+      <span class="stat-tag tag-ok">Payback 5.5 meses</span>
+    </div>
+    <div class="stat-card c-green">
+      <div class="stat-label">ALE Residual</div>
+      <div class="stat-val c-green" data-counter="527" data-prefix="Q" data-suffix="K">Q0K</div>
+      <div class="stat-sub">vs Q2,485K inherente</div>
+      <span class="stat-tag tag-ok">-78.8% pérdida esperada</span>
+    </div>
+    <div class="stat-card c-blue">
+      <div class="stat-label">Inversión Controles</div>
+      <div class="stat-val c-blue" data-counter="905" data-prefix="Q" data-suffix="K">Q0K</div>
+      <div class="stat-sub">anual en 11 controles</div>
+      <span class="stat-tag tag-warn">5 pendientes implementar</span>
+    </div>
+    <div class="stat-card c-amber">
+      <div class="stat-label">Madurez Global</div>
+      <div class="stat-val c-amber" data-counter="33" data-suffix="%">0%</div>
+      <div class="stat-sub">ISO 27001 · COBIT · NIST CSF</div>
+      <span class="stat-tag tag-warn">Nivel: Inicial</span>
+    </div>
+    <div class="stat-card c-red">
+      <div class="stat-label">Riesgos Críticos</div>
+      <div class="stat-val c-red" data-counter="17" data-suffix="">0</div>
+      <div class="stat-sub">de 39 escenarios (ALTO+MUY ALTO)</div>
+      <span class="stat-tag tag-bad">4 MUY ALTO</span>
+    </div>
+    <div class="stat-card c-purple">
+      <div class="stat-label">Hallazgos GRC</div>
+      <div class="stat-val c-purple" data-counter="33" data-suffix="">0</div>
+      <div class="stat-sub">consolidados · 4 módulos</div>
+      <span class="stat-tag tag-bad">13 críticos</span>
+    </div>
+  </div>
+
+  <div class="row c32">
+    <div class="card">
+      <div class="card-head">
+        <h3>Evolución del Riesgo — Inherente vs Residual</h3>
+        <span>39 escenarios RIE-01 a RIE-39</span>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap h300"><canvas id="chartRiskEvo"></canvas></div>
+      </div>
+    </div>
+
+    <div class="rosi-card">
+      <div class="rosi-gauge-wrap">
+        <svg viewBox="0 0 180 100" class="rosi-gauge-svg">
+          <path d="M10 95 A80 80 0 0 1 170 95" fill="none" stroke="#1a2d4a" stroke-width="14" stroke-linecap="round"/>
+          <path id="rosiArc" d="M10 95 A80 80 0 0 1 170 95" fill="none" stroke="url(#rosiGrad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251"/>
+          <defs>
+            <linearGradient id="rosiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1d6ef5"/>
+              <stop offset="100%" stop-color="#0dd3e0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="rosi-gauge-center">
+          <div class="rosi-num" data-counter="116.4" data-suffix="%">0%</div>
+        </div>
+      </div>
+      <div class="rosi-label">ROSI = (ALE reducida − Costo controles) / Costo controles</div>
+      <div class="rosi-metrics">
+        <div class="rosi-metric"><div class="rosi-metric-val" style="color:var(--red)">Q2.49M</div><div class="rosi-metric-lbl">ALE inherente / año</div></div>
+        <div class="rosi-metric"><div class="rosi-metric-val" style="color:var(--green)">Q527K</div><div class="rosi-metric-lbl">ALE residual / año</div></div>
+        <div class="rosi-metric"><div class="rosi-metric-val" style="color:var(--blue)">Q905K</div><div class="rosi-metric-lbl">Inversión controles</div></div>
+        <div class="rosi-metric"><div class="rosi-metric-val" style="color:var(--amber)">5.5 m</div><div class="rosi-metric-lbl">Periodo de retorno</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row c2">
+    <div class="card">
+      <div class="card-head">
+        <h3>Madurez por Marco de Referencia</h3>
+        <span>% controles implementados</span>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrap h300"><canvas id="chartFrameworkRadar"></canvas></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <h3>Top 5 Riesgos Inherentes</h3>
+        <span>Score = Probabilidad × Impacto</span>
+      </div>
+      <div class="card-body table-scroll" style="padding:0">
+        <table>
+          <thead><tr><th>ID</th><th>Activo</th><th>Amenaza</th><th>Score</th><th>Nivel</th></tr></thead>
+          <tbody id="topRisksTable">
+            {top5.map(r => (
+              <tr>
+                <td><span class="badge b-blue">{r.id}</span></td>
+                <td>{r.asset}</td>
+                <td style="font-size:12px">{r.threat}</td>
+                <td style="font-family:var(--font-mono);font-weight:700">{r.inherent}</td>
+                <td><span class={`badge ${r.level === 'MUY ALTO' ? 'b-red' : 'b-amber'}`}>{r.level}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

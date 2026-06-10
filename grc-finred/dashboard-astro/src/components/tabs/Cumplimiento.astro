@@ -1,0 +1,84 @@
+---
+import { ZT_PILLARS, FRAMEWORKS, KPIS, KRIS } from '../../data/dashboard.js';
+const R = 36;
+const CIRC = 2 * Math.PI * R;
+
+function kpiStats(k) {
+  const ok = k.unit === 'h' ? (k.current <= k.target) : (k.current >= k.target);
+  const pct = k.unit === 'h' ? Math.max(0, 100 - (k.current / k.target * 100)) : Math.min(100, (k.current / k.target) * 100);
+  const color = ok ? 'var(--green)' : (pct >= 70 ? 'var(--amber)' : 'var(--red)');
+  return { ok, pct, color };
+}
+---
+<div class="tab-pane" id="tab-cumplimiento">
+
+  <div class="section-label">Madurez Zero Trust — NIST SP 800-207</div>
+  <div class="zt-grid" id="ztGrid">
+    {ZT_PILLARS.map(z => (
+      <div class="zt-card">
+        <div class="zt-pillar">{z.name}</div>
+        <div class="zt-ring">
+          <svg width="84" height="84" viewBox="0 0 84 84">
+            <circle cx="42" cy="42" r={R} fill="none" stroke="#1a2d4a" stroke-width="8"/>
+            <circle class="zt-arc" cx="42" cy="42" r={R} fill="none" stroke={z.color} stroke-width="8" stroke-linecap="round"
+              stroke-dasharray={CIRC} stroke-dashoffset={CIRC} data-target-offset={CIRC - (CIRC * z.score / 100)}/>
+          </svg>
+          <div class="zt-ring-num" style={`color:${z.color}`}>{z.score}%</div>
+        </div>
+        <div class="zt-level" style={`color:${z.color}`}>{z.level}</div>
+      </div>
+    ))}
+  </div>
+
+  <div class="section-label">Cobertura por marco normativo</div>
+  <div class="card">
+    <div class="card-body">
+      <div class="fw-bar-wrap" id="fwBars">
+        {FRAMEWORKS.map(f => (
+          <div class="fw-row">
+            <div class="fw-name">{f.name}</div>
+            <div class="fw-bar-bg"><div class="fw-bar-fill" style={`background:${f.color}`} data-width={f.pct}></div></div>
+            <div class="fw-pct" style={`color:${f.color}`}>{f.pct}%</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="row c2">
+    <div>
+      <div class="section-label" style="margin-top:0">KPIs — Indicadores Clave de Desempeño</div>
+      <div class="kpi-grid" id="kpiGrid">
+        {KPIS.map(k => {
+          const { ok, pct, color } = kpiStats(k);
+          return (
+            <div class={`kpi-card${ok ? '' : ' breached'}`}>
+              <div class="kpi-id">{k.id}</div>
+              <div class="kpi-name">{k.name}</div>
+              <div class="kpi-val-big" style={`color:${color}`}>{k.current}{k.unit}</div>
+              <div class="kpi-bar-wrap"><div class="kpi-bar-fill" style={`background:${color}`} data-width={Math.min(100, pct)}></div></div>
+              <div class="kpi-meta"><span>actual</span><span>meta {k.unit === 'h' ? '≤' : '≥'} {k.target}{k.unit}</span></div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="margin-top:0">KRIs — Indicadores Clave de Riesgo</div>
+      <div class="kri-list" id="kriList">
+        {KRIS.map(k => {
+          const triggered = k.current > k.threshold;
+          return (
+            <div class={`kri-row${triggered ? ' triggered' : ''}`}>
+              <div class="kri-id">{k.id}</div>
+              <div class="kri-name">{k.name}</div>
+              <div class="kri-values">{k.current} / umbral {k.threshold}</div>
+              <div class={`kri-status ${triggered ? 'kri-bad' : 'kri-ok'}`}>{triggered ? 'DISPARADO' : 'NORMAL'}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+
+</div>

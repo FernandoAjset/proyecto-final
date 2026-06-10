@@ -1,0 +1,54 @@
+---
+import { ACTORS, TACTICS } from '../../data/dashboard.js';
+---
+<div class="tab-pane" id="tab-amenazas">
+
+  <div class="section-label">Actores de amenaza relevantes</div>
+  <div class="actor-grid" id="actorGrid">
+    {ACTORS.map(a => (
+      <div class="actor-card">
+        <div style={`border-top:3px solid ${a.color};position:absolute;top:0;left:0;right:0`}></div>
+        <span class="actor-cat" style={`background:${a.color}22;color:${a.color}`}>{a.cat}</span>
+        <div class="actor-name">{a.name}</div>
+        <div class="actor-origin">{a.origin}</div>
+        <div class="actor-relevance-bar"><div class="actor-relevance-fill" style={`background:${a.color}`} data-fill={a.relevance}></div></div>
+        <div class="actor-meta">
+          <div><span class="actor-score" style={`color:${a.color}`}>{a.relevance}</span><div>Relevancia</div></div>
+          <div style="text-align:right">
+            <div>{a.ttps} TTPs mapeados</div>
+            <div>{a.scenarios} escenarios vinculados</div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="row c32">
+    <div class="card">
+      <div class="card-head">
+        <h3>Cobertura por Táctica MITRE ATT&CK</h3>
+        <span>TA-01 a TA-08 · Enterprise</span>
+      </div>
+      <div class="card-body table-scroll" style="padding:0">
+        <table>
+          <thead><tr><th>Táctica</th><th>Actores que la cubren</th></tr></thead>
+          <tbody id="tacticTable">
+            {TACTICS.map(t => (
+              <tr>
+                <td style="font-weight:600">{t.name}</td>
+                <td>{t.actors}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>Relevancia por actor</h3></div>
+      <div class="card-body">
+        <div class="chart-wrap h300"><canvas id="chartActorRadar"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,34 @@
+---
+import { NAV_ITEMS } from '../data/dashboard.js';
+---
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-logo">
+      <div class="logo-mark">F</div>
+      <div class="brand-text">
+        <strong>FinRed Guatemala</strong>
+        <span>Centro de Gobierno GRC</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-section">
+    <div class="nav-label">Navegación</div>
+    {NAV_ITEMS.map((item, i) => (
+      <div class={`nav-item${i === 0 ? ' active' : ''}`} data-tab={item.tab}>
+        <span class="nav-icon">{item.icon}</span> {item.label}
+      </div>
+    ))}
+  </nav>
+
+  <div class="incident-box">
+    <div class="ib-head"><span class="pulse-dot"></span> Incidente activo</div>
+    <div class="ib-id">IR-2026-0601</div>
+    <div class="ib-sub">Ransomware LockBit 3.0 · P1 Crítico</div>
+  </div>
+
+  <div class="sidebar-time">
+    Marcos: ISO 27001 · ISO 27005 · COBIT 2019<br/>
+    NIST CSF 2.0 · NIST 800-207 · MITRE ATT&CK
+  </div>
+</aside>
